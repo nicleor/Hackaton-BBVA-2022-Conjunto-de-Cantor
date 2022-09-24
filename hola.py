@@ -1,2 +1,2 @@
-print("Hola mundo")
+print("Ya nada") #Cambié aquí
 print("Adios")
