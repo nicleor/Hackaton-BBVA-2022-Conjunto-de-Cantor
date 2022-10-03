@@ -1,4 +1,2 @@
-print("Ya nada") #Cambié aquí
+print ("Otra cosa")
 print("Adios")
-
-print("Luego nos vemos")
