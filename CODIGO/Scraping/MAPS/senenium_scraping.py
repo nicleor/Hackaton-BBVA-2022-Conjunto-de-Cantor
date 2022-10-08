@@ -51,6 +51,5 @@ for rev in lista:
     print(rev.text)
 
 #print(driver.find_element(By.ID,lista[0]._id).text)
-time.sleep(5)
-driver.quit()
 
+driver.quit()
