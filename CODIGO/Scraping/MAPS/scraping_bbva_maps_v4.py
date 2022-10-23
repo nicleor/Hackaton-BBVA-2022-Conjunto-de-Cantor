@@ -16,13 +16,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 #              arquitectura}
 # DEFINIR CUNADO HAYA MÁS DE UNA EMPRESA
 
-df_base = pd.read_csv("C:/Users/nicle/OneDrive/Documentos/Empresas_cercanas.csv",encoding="ISO-8859-1")
-df_base['nom_estab'] = df_base['nom_estab'].replace(' ','+')
+df_base = pd.DataFrame(pd.read_csv(r"C:\Users\sentr\OneDrive\Escritorio\scraping_bbva\lista_coincidencias_DINUE.csv"))
+df_base['NombComp'] = df_base['NombComp'].replace(' ','+')
 #df_base['Dirección'] = str(df_base['Direccion1']) + ' ' + str(df_base['Direccion2']) + ' ' + str(df_base['Colonia']) + ' ' + str(df_base['MunicipioDel']) + ' ' + str(df_base['CP']) + ' ' + str(df_base['Estado'])
 #df_base['Dirección'] = df_base['Dirección'].replace(' ','+')
     
 #Formato de la URL para busqueda en Google Maps
-path = 'C:/Users/nicle/OneDrive/Documentos/Drivers/chromedriver.exe'
+path = 'C:/Users/sentr/OneDrive/Escritorio/chromedriver_win32/chromedriver.exe'
     
 def scraping_NomGaMaps(i,website_nombre,website_lugar):
     #abre ventana de chrome
@@ -215,9 +215,8 @@ def scraping_NomGaMaps(i,website_nombre,website_lugar):
         #print(v_registro['Reviews'])       
         df_datMaps = pd.DataFrame(data=v_registro)
     return df_datMaps
-
-lista_fallos = []
-lista = range(0,67)
+  lista_fallos = []
+lista = range(0,10)
 
 for i in lista:
     Cadena_nombre = str(df_base.iloc[i,13])
@@ -246,8 +245,8 @@ for i in lista:
 print(lista_fallos)
 print(len(lista_fallos)) 
 
-#df_datMaps_res
+df_datMaps_res
 
 print(len(df_datMaps_res))
 
-df_datMaps_res.to_csv(r"C:\Users\nicle\OneDrive\Documentos\Hackaton\BBVA 2022\scraping_bva_cercanas.csv",encoding='ISO-8859-1')
+df_datMaps_res.to_csv(r"C:\Users\sentr\OneDrive\Escritorio\scraping_bbva\scraping_bva_T10.csv",encoding='ISO-8859-1')

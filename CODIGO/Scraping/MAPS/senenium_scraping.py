@@ -21,8 +21,8 @@ def deEmojify(text):
 
 #website = 'https://www.google.com/maps/search/la+vaca+de+muchos+colores'
 #website = 'https://www.google.com/maps/search/ESFM'
-website = 'https://www.google.com/maps/search/PERFIHERRAJES+IMMSA'
-#website = 'https://www.google.com/maps/search/financiera+sustentable'
+#website = 'https://www.google.com/maps/search/PERFIHERRAJES+IMMSA'
+website = 'https://www.google.com/maps/search/financiera+sustentable'
 path=r"C:\Users\nicle\OneDrive\Documentos\Drivers\chromedriver.exe"
 
 #abre ventana de chrome
