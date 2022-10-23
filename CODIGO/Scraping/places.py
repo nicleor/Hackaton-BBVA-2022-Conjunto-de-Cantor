@@ -3,6 +3,9 @@ import googlemaps as gm
 import pandas as pd
 import json
 
+#sentiment analysis
+from nltk.sentiment import SentimentIntensityAnalyzer as sia
+
 gmaps = gm.Client(key='')
 
 #parametrizar ruta
@@ -55,6 +58,10 @@ output = dict()
 for k in resultados.keys():
     dic_aun = {ka:resultados[k][0]['results'][0][ka] for ka in resultados[k][0]['results'][0] if ka in ['types','user_ratings_total','rating','name','formatted_address','business_status']}
     dic_aun2 = {ka:resultados[k][1]['result'][ka] for ka in resultados[k][1]['result'] if ka in ['opening_hours','formatted_phone_number','reference','reviews','types','vicinity','website']}
+    if 'reviews' in dic_aun2.keys():
+        for rev in range(len(dic_aun2['reviews'])):
+            texto = dic_aun2['reviews'][rev]['text']
+            dic_aun2['reviews'][rev]['sentiment'] = sia().polarity_scores(texto)['compound']
     output[k] = [dic_aun,dic_aun2]
 
 #creando el json de salida
